@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jordy Catamuscay — Just Aura</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F0E0D;
+    --bg2:#171513;
+    --text:#EDE7DD;
+    --muted:#9A938A;
+    --gold:#C7A66B;
+    --gold-dim:rgba(199,166,107,0.35);
+    --line:#2B2823;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    font-weight:300;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold);color:#0F0E0D;}
+  a{color:inherit;text-decoration:none;}
+  .serif{font-family:'Fraunces',serif;}
+  .serif-i{font-family:'Fraunces',serif;font-style:italic;}
+
+  [data-lang="es"] .t-en{display:none;}
+  [data-lang="en"] .t-es{display:none;}
+
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .label{
+    font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
+    color:var(--gold);font-weight:500;
+  }
+  .roman{font-family:'Fraunces',serif;font-style:italic;color:var(--muted);font-size:14px;}
+
+  /* nav */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(15,14,13,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{max-width:1080px;margin:0 auto;padding:24px 32px;display:flex;justify-content:space-between;align-items:center;}
+  .wordmark{font-family:'Fraunces',serif;font-style:italic;font-size:18px;letter-spacing:0.01em;}
+  .nav-right{display:flex;align-items:center;gap:34px;}
+  .nav-links{display:flex;gap:28px;font-size:13px;color:var(--muted);}
+  .nav-links a{position:relative;padding-bottom:4px;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .3s ease;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-links a:hover::after{width:100%;}
+  @media (max-width:700px){ .nav-links{display:none;} }
+  .lang-switch{display:flex;gap:8px;font-size:12px;letter-spacing:0.05em;}
+  .lang-switch button{background:none;border:none;cursor:pointer;color:var(--muted);padding:0;}
+  .lang-switch button.active{color:var(--gold);}
+
+  /* hero */
+  .hero{padding:200px 0 130px;position:relative;}
+  .hero .label{margin-bottom:34px;display:inline-block;opacity:0;animation:fadeUp .9s ease forwards;animation-delay:.1s;}
+  .hero h1{
+    font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(54px,9vw,110px);line-height:0.98;letter-spacing:-0.01em;
+    margin-bottom:30px;opacity:0;animation:fadeUp .9s ease forwards;animation-delay:.25s;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold);font-weight:400;}
+  .gold-rule{
+    width:0;height:1px;background:var(--gold);margin-bottom:30px;
+    animation:drawLine 1.1s ease forwards;animation-delay:.9s;
+  }
+  @keyframes drawLine{ to{ width:90px; } }
+  @keyframes fadeUp{ from{opacity:0;transform:translateY(14px);} to{opacity:1;transform:translateY(0);} }
+
+  .hero p.lede{
+    max-width:520px;color:var(--muted);font-size:18px;font-weight:300;margin-bottom:46px;
+    opacity:0;animation:fadeUp .9s ease forwards;animation-delay:.45s;
+  }
+  .roles-line{
+    display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--text);
+    margin-bottom:50px;opacity:0;animation:fadeUp .9s ease forwards;animation-delay:.6s;
+  }
+  .roles-line .sep{color:var(--gold-dim);}
+  .cta-row{display:flex;gap:40px;flex-wrap:wrap;opacity:0;animation:fadeUp .9s ease forwards;animation-delay:.75s;}
+  .cta-link{font-size:14px;letter-spacing:0.04em;border-bottom:1px solid var(--gold-dim);padding-bottom:6px;}
+  .cta-link:hover{border-color:var(--gold);color:var(--gold);}
+
+  /* sections */
+  .section{padding:120px 0;border-top:1px solid var(--line);}
+  .section-head{display:flex;align-items:baseline;gap:18px;margin-bottom:64px;}
+  .section-head h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(30px,4vw,42px);letter-spacing:-0.01em;}
+
+  /* work */
+  .item{
+    display:grid;grid-template-columns:70px 1fr;gap:36px;
+    padding:44px 0;border-top:1px solid var(--line);
+  }
+  .item:last-child{border-bottom:1px solid var(--line);}
+  .item h3{font-family:'Fraunces',serif;font-weight:500;font-size:25px;margin-bottom:12px;}
+  .item p{color:var(--muted);font-size:15px;font-weight:300;max-width:580px;margin-bottom:14px;}
+  .item .meta{font-size:11px;letter-spacing:0.1em;color:var(--gold);text-transform:uppercase;}
+  .item .go{display:inline-block;margin-top:16px;font-size:13px;border-bottom:1px solid var(--gold-dim);}
+  .item .go:hover{color:var(--gold);border-color:var(--gold);}
+
+  /* services */
+  .svc-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:56px;}
+  .svc .roman{display:block;margin-bottom:16px;}
+  .svc h3{font-family:'Fraunces',serif;font-weight:500;font-size:19px;margin-bottom:14px;}
+  .svc p{color:var(--muted);font-size:14px;font-weight:300;margin-bottom:18px;}
+  .svc .tools{font-size:12px;letter-spacing:0.04em;color:var(--text);opacity:.7;}
+  @media (max-width:760px){ .svc-cols{grid-template-columns:1fr;gap:46px;} }
+
+  /* about */
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:64px;}
+  .about p{color:var(--muted);font-size:16px;font-weight:300;margin-bottom:20px;max-width:560px;}
+  .meta-list .row{display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);font-size:13px;}
+  .meta-list .row:last-child{border-bottom:1px solid var(--line);}
+  .meta-list .k{color:var(--muted);letter-spacing:0.04em;text-transform:uppercase;font-size:11px;}
+  .meta-list .v{font-family:'Fraunces',serif;font-style:italic;color:var(--text);}
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+
+  /* contact */
+  .big-email{
+    display:block;font-family:'Fraunces',serif;font-weight:500;
+    font-size:clamp(30px,5.5vw,56px);margin:36px 0 14px;letter-spacing:-0.01em;
+  }
+  .big-email em{font-style:italic;color:var(--gold);font-weight:400;}
+  .big-email:hover em{color:var(--text);}
+  .contact-row{display:flex;justify-content:space-between;align-items:baseline;padding:20px 0;border-top:1px solid var(--line);font-size:15px;font-weight:300;}
+  .contact-row:last-child{border-bottom:1px solid var(--line);}
+  .contact-row .k{color:var(--muted);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;}
+  .contact-row .v{font-family:'Fraunces',serif;font-style:italic;}
+
+  footer{padding:54px 0;border-top:1px solid var(--line);}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+  footer p{color:var(--muted);font-size:11px;letter-spacing:0.08em;text-transform:uppercase;}
+
+  .reveal{opacity:1;transform:none;}
+  html.js .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s ease, transform .7s ease;}
+  html.js .reveal.in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;scroll-behavior:auto !important;opacity:1 !important;transform:none !important;}
+    .gold-rule{width:90px;}
+  }
+  @media (max-width:680px){ .item{grid-template-columns:1fr;} }
+</style>
+</head>
+<body data-lang="es">
+
+<nav>
+  <div class="nav-inner">
+    <span class="wordmark">Just Aura</span>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="#work"><span class="t-es">Trabajo</span><span class="t-en">Work</span></a>
+        <a href="#services"><span class="t-es">Servicios</span><span class="t-en">Services</span></a>
+        <a href="#about"><span class="t-es">Sobre mí</span><span class="t-en">About</span></a>
+        <a href="#contact"><span class="t-es">Contacto</span><span class="t-en">Contact</span></a>
+      </div>
+      <div class="lang-switch">
+        <button data-set="es" class="active">ES</button>
+        <span style="color:var(--line);">/</span>
+        <button data-set="en">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero wrap" id="hero">
+  <span class="label">
+    <span class="t-es">FREELANCE · CALI, COLOMBIA · 5+ AÑOS DE EXPERIENCIA</span>
+    <span class="t-en">FREELANCE · CALI, COLOMBIA · 5+ YEARS OF EXPERIENCE</span>
+  </span>
+  <h1>Jordy Catamuscay<br><em>Just Aura</em></h1>
+  <div class="gold-rule"></div>
+  <p class="lede">
+    <span class="t-es">Animador y motion designer con más de 5 años creando piezas 2D/3D, spots comerciales y contenido de marca para turismo, lifestyle, ecommerce y salud.</span>
+    <span class="t-en">Animator and motion designer with over 5 years creating 2D/3D pieces, commercial spots and brand content for travel, lifestyle, ecommerce and health brands.</span>
+  </p>
+  <div class="roles-line">
+    <span><span class="t-es">Motion Design</span><span class="t-en">Motion Design</span></span>
+    <span class="sep">—</span>
+    <span><span class="t-es">Edición de Video</span><span class="t-en">Video Editing</span></span>
+    <span class="sep">—</span>
+    <span>Community Management</span>
+  </div>
+  <div class="cta-row">
+    <a class="cta-link" href="https://vimeo.com/jordyalejandr0" target="_blank" rel="noopener">
+      <span class="t-es">Ver el reel</span><span class="t-en">Watch the reel</span>
+    </a>
+    <a class="cta-link" href="#contact">
+      <span class="t-es">Hablemos</span><span class="t-en">Let's talk</span>
+    </a>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section wrap reveal" id="work">
+  <div class="section-head">
+    <span class="roman">I.</span>
+    <h2><span class="t-es">Trabajo destacado</span><span class="t-en">Featured work</span></h2>
+  </div>
+
+  <div class="item">
+    <div class="roman">01</div>
+    <div>
+      <h3>Biovantix</h3>
+      <p>
+        <span class="t-es">Spot comercial para una marca de bienestar: motion graphics, animación tipográfica y piezas de marca para campaña digital.</span>
+        <span class="t-en">Commercial spot for a wellness brand: motion graphics, typographic animation and branded pieces for a digital campaign.</span>
+      </p>
+      <div class="meta">MOTION GRAPHICS · WELLNESS · SPOT COMERCIAL</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="roman">02</div>
+    <div>
+      <h3>Sanando en Voz Alta</h3>
+      <p>
+        <span class="t-es">Identidad visual completa para un podcast: diseño de mascota, ilustración de personaje y logo animado para YouTube e Instagram.</span>
+        <span class="t-en">Full visual identity for a podcast: mascot design, character illustration and animated logo for YouTube and Instagram.</span>
+      </p>
+      <div class="meta">DISEÑO DE PERSONAJES · BRAND IDENTITY · LOGO ANIMADO</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="roman">03</div>
+    <div>
+      <h3>Smile and Travel</h3>
+      <p>
+        <span class="t-es">Contenido audiovisual de marca para turismo, combinando footage en locación, edición dinámica y overlays tipográficos para redes.</span>
+        <span class="t-en">Brand content for a travel client, combining on-location footage, dynamic editing and typographic overlays for social.</span>
+      </p>
+      <div class="meta">VIDEO EDITING · TRAVEL &amp; LIFESTYLE · CONTENIDO DE MARCA</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="roman">04</div>
+    <div>
+      <h3>Arcángel <span class="t-es">— Spot para Austin Santos</span><span class="t-en">— Spot for Austin Santos</span></h3>
+      <p>
+        <span class="t-es">Spot comercial para el artista urbano Arcángel, encargado por Austin Santos: motion graphics, tipografía animada y narrativa visual comprimida para redes.</span>
+        <span class="t-en">Commercial spot for urban artist Arcángel, commissioned by Austin Santos: motion graphics, animated typography and compressed visual storytelling for social.</span>
+      </p>
+      <div class="meta">MOTION GRAPHICS · MÚSICA URBANA · SPOT COMERCIAL</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="roman">05</div>
+    <div>
+      <h3>Lunay <span class="t-es">— Spot</span><span class="t-en">— Spot</span></h3>
+      <p>
+        <span class="t-es">Spot corto para el artista urbano Lunay, con narrativa visual comprimida pensada para consumo rápido en redes.</span>
+        <span class="t-en">Short-form spot for urban artist Lunay, with compressed visual storytelling built for fast social consumption.</span>
+      </p>
+      <div class="meta">MOTION GRAPHICS · MÚSICA URBANA · SPOT COMERCIAL</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="roman">06</div>
+    <div>
+      <h3>Hilos Angelicales</h3>
+      <p>
+        <span class="t-es">Spot comercial de corta duración (14–45s) para esta marca local de Cali, con motion graphics, tipografía animada y narrativa visual comprimida.</span>
+        <span class="t-en">Short-form commercial spot (14–45s) for this local Cali brand, with motion graphics, animated typography and compressed visual storytelling.</span>
+      </p>
+      <div class="meta">MOTION GRAPHICS · TIPOGRAFÍA ANIMADA · MARCA LOCAL</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="roman">07</div>
+    <div>
+      <h3><span class="t-es">Plan Viajero — Cali &amp; Medellín</span><span class="t-en">Plan Viajero — Cali &amp; Medellín</span></h3>
+      <p>
+        <span class="t-es">Contenido audiovisual de turismo para ambas ciudades, combinando footage aéreo, edición dinámica y overlays tipográficos.</span>
+        <span class="t-en">Travel content for both cities, combining aerial footage, dynamic editing and typographic overlays.</span>
+      </p>
+      <div class="meta">VIDEO EDITING · TRAVEL &amp; LIFESTYLE · CONTENIDO DE MARCA</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="roman">08</div>
+    <div>
+      <h3>Duván Monar <span class="t-es">— Editor &amp; Creador de Contenido</span><span class="t-en">— Editor &amp; Content Creator</span></h3>
+      <p>
+        <span class="t-es">+50 piezas editadas para Reels, TikTok y Stories (2019–2025), manteniendo coherencia con el manual de marca en cada plataforma.</span>
+        <span class="t-en">50+ pieces edited for Reels, TikTok and Stories (2019–2025), keeping brand-guide consistency across every platform.</span>
+      </p>
+      <div class="meta">VIDEO EDITING · BRAND CONSISTENCY · MULTI-PLATAFORMA</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="roman">09</div>
+    <div>
+      <h3>Perfección Dental</h3>
+      <p>
+        <span class="t-es">Bumper animado multi-escena para Reels (1080×1920), construido en React + Remotion. Estrategia de contenido y diseño de portadas incluidos.</span>
+        <span class="t-en">Multi-scene animated bumper for Reels (1080×1920), built in React + Remotion. Content strategy and cover design included.</span>
+      </p>
+      <div class="meta">MOTION DESIGN · REMOTION / REACT · BRAND ANIMATION</div>
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="roman">10</div>
+    <div>
+      <h3>Expendio de Carnes El Porvenir</h3>
+      <p>
+        <span class="t-es">Sistema de identidad de marca completo (6 versiones de logo, paleta, tipografía) y campaña de contenido de un mes para Instagram, Facebook y TikTok.</span>
+        <span class="t-en">Full brand identity system (6 logo versions, palette, typography) and a month-one content campaign for Instagram, Facebook and TikTok.</span>
+      </p>
+      <div class="meta">BRANDING · SOCIAL CONTENT · COMMUNITY MANAGEMENT</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section wrap reveal" id="services">
+  <div class="section-head">
+    <span class="roman">II.</span>
+    <h2><span class="t-es">Servicios</span><span class="t-en">Services</span></h2>
+  </div>
+  <div class="svc-cols">
+    <div class="svc">
+      <span class="roman">01</span>
+      <h3><span class="t-es">Motion Design, 3D &amp; Personajes</span><span class="t-en">Motion Design, 3D &amp; Characters</span></h3>
+      <p><span class="t-es">Animación 2D/3D, visualización de producto y diseño de personajes para campañas de alto impacto.</span><span class="t-en">2D/3D animation, product visualization and character design for high-impact campaigns.</span></p>
+      <div class="tools">After Effects · Cinema 4D (Cineware) · Illustrator</div>
+    </div>
+    <div class="svc">
+      <span class="roman">02</span>
+      <h3><span class="t-es">Edición &amp; Adaptación Multiplataforma</span><span class="t-en">Editing &amp; Multi-platform Delivery</span></h3>
+      <p><span class="t-es">Ritmo, color y especificaciones técnicas para Meta, TikTok, YouTube y Google Ads.</span><span class="t-en">Pacing, color and technical specs for Meta, TikTok, YouTube and Google Ads.</span></p>
+      <div class="tools">Premiere Pro · Photoshop · 9:16 + 16:9</div>
+    </div>
+    <div class="svc">
+      <span class="roman">03</span>
+      <h3>Community Management</h3>
+      <p><span class="t-es">Calendario, copy y estrategia de algoritmo, de punta a punta.</span><span class="t-en">Calendar, copy and algorithm strategy, end to end.</span></p>
+      <div class="tools">Canva · Ideogram · Playground AI</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section wrap reveal" id="about">
+  <div class="section-head">
+    <span class="roman">III.</span>
+    <h2><span class="t-es">Sobre mí</span><span class="t-en">About</span></h2>
+  </div>
+  <div class="about-grid">
+    <div class="about">
+      <p>
+        <span class="t-es">Soy Jordy Catamuscay, animador digital y motion designer con más de 5 años produciendo piezas 2D/3D, spots comerciales y contenido de marca para turismo, lifestyle, ecommerce y salud. Trabajo bajo la marca Just Aura, con base en Cali, Colombia. Estudio Ingeniería Multimedia en la Universidad Autónoma de Occidente y soy Tecnólogo en Producción Multimedia por el SENA.</span>
+        <span class="t-en">I'm Jordy Catamuscay, a digital animator and motion designer with over 5 years producing 2D/3D pieces, commercial spots and brand content for travel, lifestyle, ecommerce and health brands. I work under the Just Aura brand, based in Cali, Colombia. I'm studying Multimedia Engineering at Universidad Autónoma de Occidente and hold a Multimedia Production technologist credential from SENA.</span>
+      </p>
+      <p>
+        <span class="t-es">Trabajo mejor de noche, con buena música de fondo. Mi proceso empieza siempre por entender a quién le habla la marca, antes de tocar una sola animación.</span>
+        <span class="t-en">I work best at night, with good music in the background. My process always starts with understanding who the brand is speaking to, before touching a single animation.</span>
+      </p>
+    </div>
+    <div class="meta-list">
+      <div class="row"><span class="k t-es">Base</span><span class="k t-en">Based in</span><span class="v">Cali, Colombia</span></div>
+      <div class="row"><span class="k t-es">Experiencia</span><span class="k t-en">Experience</span><span class="v">5+ <span class="t-es">años</span><span class="t-en">years</span></span></div>
+      <div class="row"><span class="k t-es">Formación</span><span class="k t-en">Education</span><span class="v">UAO · SENA</span></div>
+      <div class="row"><span class="k t-es">Idiomas</span><span class="k t-en">Languages</span><span class="v t-es">ES nativo · EN intermedio</span><span class="v t-en">ES native · EN intermediate</span></div>
+      <div class="row"><span class="k">Vimeo</span><span class="v">jordyalejandr0</span></div>
+      <div class="row"><span class="k t-es">Disponibilidad</span><span class="k t-en">Availability</span><span class="v t-es">Abierta</span><span class="v t-en">Open</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section wrap reveal" id="contact">
+  <div class="section-head">
+    <span class="roman">IV.</span>
+    <h2><span class="t-es">Contacto</span><span class="t-en">Contact</span></h2>
+  </div>
+
+  <a class="big-email" href="mailto:jordyalejandro1994@gmail.com">jordyalejandro1994<em>@gmail.com</em></a>
+  <div style="margin-bottom:34px;">
+    <a class="cta-link" href="https://vimeo.com/jordyalejandr0" target="_blank" rel="noopener">Vimeo</a>
+  </div>
+
+  <div class="contact-row"><span class="k">WhatsApp</span><span class="v">+57 318 334 5059</span></div>
+  <div class="contact-row"><span class="k t-es">Ubicación</span><span class="k t-en">Location</span><span class="v">Cali, Colombia</span></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>Just Aura © 2026</p>
+    <p class="t-es">Hecho con código y café a deshora</p>
+    <p class="t-en" style="display:none;">Made with code and late-night coffee</p>
+  </div>
+</footer>
+
+<script>
+  document.documentElement.classList.add('js');
+
+  const buttons = document.querySelectorAll('.lang-switch button');
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const lang = btn.dataset.set;
+      document.body.setAttribute('data-lang', lang);
+      buttons.forEach(b=>b.classList.toggle('active', b===btn));
+      document.querySelectorAll('.t-en').forEach(el=>el.style.display = (lang==='en') ? '' : 'none');
+      document.querySelectorAll('.t-es').forEach(el=>el.style.display = (lang==='es') ? '' : 'none');
+      document.documentElement.lang = lang;
+    });
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in'); });
+    }, {threshold:0.08, rootMargin:'0px 0px -5% 0px'});
+    revealEls.forEach(el=>observer.observe(el));
+  } else {
+    revealEls.forEach(el=>el.classList.add('in'));
+  }
+
+  // Safety net: if for any reason a section never got revealed (slow fonts,
+  // observer edge cases, etc.), force it visible after a short delay.
+  setTimeout(()=>{ revealEls.forEach(el=>el.classList.add('in')); }, 2000);
+</script>
+
+</body>
+</html>
