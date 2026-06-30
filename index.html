@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>JUST AURA | Motion Design Studio</title>
+<meta name="description" content="Estudio creativo especializado en motion design, animación 3D, brand visuals y contenido cinematográfico.">
+<meta property="og:title" content="JUST AURA | Motion Design Studio">
+<meta property="og:description" content="Estudio creativo especializado en motion design, animación 3D, brand visuals y contenido cinematográfico.">
+<meta property="og:image" content="assets/img/photo-01.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <video class="loader-video" src="assets/video/logo.mp4" autoplay muted playsinline loop></video>
+  <div class="loader-sub">Motion Design Studio</div>
+  <div class="loader-bar"><div class="loader-progress"></div></div>
+</div>
+
+<!-- VIDEO MODAL -->
+<div id="modal">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModal()">✕ &nbsp;<span data-es="Cerrar" data-en="Close">Cerrar</span></button>
+    <iframe id="modalFrame" src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <div class="modal-label" id="modalLabel"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">JUST AURA</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#work"        data-es="Trabajo"    data-en="Work">Trabajo</a>
+      <a href="#photography" data-es="Fotografía" data-en="Photography">Fotografía</a>
+      <a href="#process"     data-es="Proceso"    data-en="Process">Proceso</a>
+      <a href="#services"    data-es="Servicios"  data-en="Services">Servicios</a>
+      <a href="#about"       data-es="Estudio"    data-en="Studio">Estudio</a>
+      <a href="#contact"     data-es="Contacto"   data-en="Contact">Contacto</a>
+    </div>
+    <div class="lang-switch">
+      <button class="lang-btn active" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+  <!-- Mobile menu button -->
+  <button class="nav-mobile-btn" onclick="toggleMobileMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#work"        onclick="closeMobileMenu()" data-es="Trabajo"    data-en="Work">Trabajo</a>
+  <a href="#photography" onclick="closeMobileMenu()" data-es="Fotografía" data-en="Photography">Fotografía</a>
+  <a href="#process"     onclick="closeMobileMenu()" data-es="Proceso"    data-en="Process">Proceso</a>
+  <a href="#services"    onclick="closeMobileMenu()" data-es="Servicios"  data-en="Services">Servicios</a>
+  <a href="#about"       onclick="closeMobileMenu()" data-es="Estudio"    data-en="Studio">Estudio</a>
+  <a href="#contact"     onclick="closeMobileMenu()" data-es="Contacto"   data-en="Contact">Contacto</a>
+  <div class="mobile-lang">
+    <button class="lang-btn active" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-eyebrow" data-es="Jordy Catamuscay — Director Creativo" data-en="Jordy Catamuscay — Creative Director">Jordy Catamuscay — Director Creativo</div>
+  <h1 class="hero-title hero-title-manifesto"
+    data-es='"Detrás de cada animación hay una idea,<br>un sentimiento y una historia.<br><br>Creo <em>experiencias visuales</em> donde diseño,<br>movimiento y emoción se conectan."'
+    data-en='"Behind every animation there is an idea,<br>a feeling and a story.<br><br>I create <em>visual experiences</em> where design,<br>movement and emotion connect."'>
+    "Detrás de cada animación hay una idea,<br>un sentimiento y una historia.<br><br>Creo <em>experiencias visuales</em> donde diseño,<br>movimiento y emoción se conectan."
+  </h1>
+  <div class="hero-sub" data-es="Animación de Marca &nbsp;•&nbsp; Motion Graphics &nbsp;•&nbsp; 3D &nbsp;•&nbsp; Storytelling Visual" data-en="Brand Animation &nbsp;•&nbsp; Motion Graphics &nbsp;•&nbsp; 3D &nbsp;•&nbsp; Visual Storytelling">Animación de Marca &nbsp;•&nbsp; Motion Graphics &nbsp;•&nbsp; 3D &nbsp;•&nbsp; Storytelling Visual</div>
+  <div class="hero-cta">
+    <a href="#work" class="btn-primary">
+      <span data-es="Ver Trabajo Seleccionado" data-en="View Selected Work">Ver Trabajo Seleccionado</span>
+      <span class="btn-arr"></span>
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <div class="scroll-text">Scroll</div>
+  </div>
+</section>
+
+<!-- REEL STRIP -->
+<div class="reel-strip">
+  <div class="reel-track">
+    <div class="reel-item"><div class="reel-dot"></div>Motion Design</div>
+    <div class="reel-item"><div class="reel-dot"></div>3D Animation</div>
+    <div class="reel-item"><div class="reel-dot"></div>Brand Animation</div>
+    <div class="reel-item"><div class="reel-dot"></div>Commercial Content</div>
+    <div class="reel-item"><div class="reel-dot"></div>Visual Storytelling</div>
+    <div class="reel-item"><div class="reel-dot"></div>Video Editing</div>
+    <div class="reel-item"><div class="reel-dot"></div>Creative Direction</div>
+    <div class="reel-item"><div class="reel-dot"></div>Motion Design</div>
+    <div class="reel-item"><div class="reel-dot"></div>3D Animation</div>
+    <div class="reel-item"><div class="reel-dot"></div>Brand Animation</div>
+    <div class="reel-item"><div class="reel-dot"></div>Commercial Content</div>
+    <div class="reel-item"><div class="reel-dot"></div>Visual Storytelling</div>
+    <div class="reel-item"><div class="reel-dot"></div>Video Editing</div>
+    <div class="reel-item"><div class="reel-dot"></div>Creative Direction</div>
+  </div>
+</div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="section-header reveal">
+    <span class="section-number">01</span>
+    <h2 class="section-title" data-es="Trabajo Seleccionado" data-en="Selected Work">Trabajo Seleccionado</h2>
+    <div class="section-line"></div>
+    <a href="https://www.youtube.com/" class="section-link" target="_blank" rel="noopener">YouTube →</a>
+  </div>
+
+  <!-- HORIZONTAL VIDEOS -->
+  <div class="work-label reveal" data-es="— Horizontal" data-en="— Horizontal">— Horizontal</div>
+  <div class="video-grid video-grid-h reveal">
+    <div class="project-card ratio-h" data-project data-yt="AqqDdFaZvZo">
+      <div class="project-bg" style="background-image:url('https://img.youtube.com/vi/AqqDdFaZvZo/hqdefault.jpg')"></div>
+      <div class="project-overlay"></div>
+      <span class="project-num">01</span>
+      <button class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <div class="project-info">
+        <div class="project-cat" data-es="Diseño de Personajes · Brand Identity · Logo Animado" data-en="Character Design · Brand Identity · Animated Logo">Diseño de Personajes · Brand Identity · Logo Animado</div>
+        <div class="project-name" data-es="Logo Sanando En Voz Alta" data-en="Sanando En Voz Alta Logo">Logo Sanando En Voz Alta</div>
+        <div class="project-role" data-es="Diseño de Personaje — Animación de Logo" data-en="Character Design — Logo Animation">Diseño de Personaje — Animación de Logo</div>
+      </div>
+    </div>
+
+    <div class="project-card ratio-h" data-project data-yt="jPJpsX32VWw">
+      <div class="project-bg" style="background-image:url('https://img.youtube.com/vi/jPJpsX32VWw/hqdefault.jpg')"></div>
+      <div class="project-overlay"></div>
+      <span class="project-num">02</span>
+      <button class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <div class="project-info">
+        <div class="project-cat" data-es="Motion Graphics · Bienestar · Spot Comercial" data-en="Motion Graphics · Wellness · Commercial Spot">Motion Graphics · Bienestar · Spot Comercial</div>
+        <div class="project-name" data-es="Comercial Biovantix" data-en="Biovantix Commercial">Comercial Biovantix</div>
+        <div class="project-role" data-es="Motion Design — Animación de Marca" data-en="Motion Design — Brand Animation">Motion Design — Animación de Marca</div>
+      </div>
+    </div>
+
+    <div class="project-card ratio-h" data-project data-yt="wXGapqFFydA">
+      <div class="project-bg" style="background-image:url('https://img.youtube.com/vi/wXGapqFFydA/hqdefault.jpg')"></div>
+      <div class="project-overlay"></div>
+      <span class="project-num">03</span>
+      <button class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <div class="project-info">
+        <div class="project-cat" data-es="Motion Graphics · Visual Storytelling · Spot Comercial" data-en="Motion Graphics · Visual Storytelling · Commercial Spot">Motion Graphics · Visual Storytelling · Spot Comercial</div>
+        <div class="project-name" data-es="Future Bella Storm" data-en="Future Bella Storm">Future Bella Storm</div>
+        <div class="project-role" data-es="Dirección Creativa — Motion Design" data-en="Creative Direction — Motion Design">Dirección Creativa — Motion Design</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERTICAL VIDEOS -->
+  <div class="work-label reveal" style="margin-top:48px;" data-es="— Vertical" data-en="— Vertical">— Vertical</div>
+  <div class="video-grid video-grid-v reveal">
+    <div class="project-card ratio-v" data-project data-yt="I7YJD2fwwv8">
+      <div class="project-bg" style="background-image:url('https://img.youtube.com/vi/I7YJD2fwwv8/maxresdefault.jpg')"></div>
+      <div class="project-overlay"></div>
+      <span class="project-num">04</span>
+      <button class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <div class="project-info">
+        <div class="project-cat" data-es="Motion Graphics · Música Urbana · Spot Comercial" data-en="Motion Graphics · Urban Music · Commercial Spot">Motion Graphics · Música Urbana · Spot Comercial</div>
+        <div class="project-name" data-es="Short Lunay" data-en="Short Lunay">Short Lunay</div>
+        <div class="project-role" data-es="Motion Design — Dirección Visual" data-en="Motion Design — Visual Direction">Motion Design — Dirección Visual</div>
+      </div>
+    </div>
+
+    <div class="project-card ratio-v" data-project data-yt="yaeeKO1IUqw">
+      <div class="project-bg" style="background-image:url('https://img.youtube.com/vi/yaeeKO1IUqw/maxresdefault.jpg')"></div>
+      <div class="project-overlay"></div>
+      <span class="project-num">05</span>
+      <button class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <div class="project-info">
+        <div class="project-cat" data-es="Video Editing · Storytelling · Reel Anual" data-en="Video Editing · Storytelling · Year Recap">Video Editing · Storytelling · Reel Anual</div>
+        <div class="project-name" data-es="Recap 2025" data-en="Recap 2025">Recap 2025</div>
+        <div class="project-role" data-es="Dirección — Edición de Video" data-en="Direction — Video Editing">Dirección — Edición de Video</div>
+      </div>
+    </div>
+
+    <div class="project-card ratio-v" data-project data-yt="Km2nGZa6XCY">
+      <div class="project-bg" style="background-image:url('https://img.youtube.com/vi/Km2nGZa6XCY/maxresdefault.jpg')"></div>
+      <div class="project-overlay"></div>
+      <span class="project-num">06</span>
+      <button class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <div class="project-info">
+        <div class="project-cat" data-es="Motion Graphics · Inteligencia Artificial · Experimental" data-en="Motion Graphics · Artificial Intelligence · Experimental">Motion Graphics · Inteligencia Artificial · Experimental</div>
+        <div class="project-name" data-es="Duv IA" data-en="Duv IA">Duv IA</div>
+        <div class="project-role" data-es="Motion Design — Dirección Creativa" data-en="Motion Design — Creative Direction">Motion Design — Dirección Creativa</div>
+      </div>
+    </div>
+
+    <div class="project-card ratio-v" data-project data-yt="ZbnbVhKLMyQ">
+      <div class="project-bg" style="background-image:url('https://img.youtube.com/vi/ZbnbVhKLMyQ/maxresdefault.jpg')"></div>
+      <div class="project-overlay"></div>
+      <span class="project-num">07</span>
+      <button class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <div class="project-info">
+        <div class="project-cat" data-es="Motion Graphics · Música Urbana · Spot Comercial" data-en="Motion Graphics · Urban Music · Commercial Spot">Motion Graphics · Música Urbana · Spot Comercial</div>
+        <div class="project-name" data-es="Ritmo Arca" data-en="Ritmo Arca">Ritmo Arca</div>
+        <div class="project-role" data-es="Dirección Creativa — Motion Design" data-en="Creative Direction — Motion Design">Dirección Creativa — Motion Design</div>
+      </div>
+    </div>
+
+    <div class="project-card ratio-v" data-project data-yt="6toFDTugyO0">
+      <div class="project-bg" style="background-image:url('https://img.youtube.com/vi/6toFDTugyO0/maxresdefault.jpg')"></div>
+      <div class="project-overlay"></div>
+      <span class="project-num">08</span>
+      <button class="play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <div class="project-info">
+        <div class="project-cat" data-es="Brand Animation · Colaboración · Spot Comercial" data-en="Brand Animation · Collaboration · Commercial Spot">Brand Animation · Colaboración · Spot Comercial</div>
+        <div class="project-name" data-es="Rubí X Dr. Duván" data-en="Rubí X Dr. Duván">Rubí X Dr. Duván</div>
+        <div class="project-role" data-es="Dirección Creativa — Motion Design" data-en="Creative Direction — Motion Design">Dirección Creativa — Motion Design</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PHOTOGRAPHY -->
+<section id="photography">
+  <div class="section-header reveal">
+    <span class="section-number">02</span>
+    <h2 class="section-title" data-es="Fotografía" data-en="Photography">Fotografía</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="photo-grid">
+    <div class="photo-card reveal"><img src="assets/img/photo-01.jpg" alt="Editorial portrait" loading="lazy"></div>
+    <div class="photo-card reveal d1"><img src="assets/img/photo-02.jpg" alt="Night lights" loading="lazy"></div>
+    <div class="photo-card reveal d2"><img src="assets/img/photo-03.jpg" alt="Mountain cyclists" loading="lazy"></div>
+    <div class="photo-card reveal"><img src="assets/img/photo-04.jpg" alt="Dental macro" loading="lazy"></div>
+    <div class="photo-card reveal d1"><img src="assets/img/photo-05.jpg" alt="BMX rider" loading="lazy"></div>
+    <div class="photo-card reveal d2"><img src="assets/img/photo-06.jpg" alt="Dental clinic" loading="lazy"></div>
+  </div>
+</section>
+
+<!-- BRAND IDENTITY -->
+<section id="brand-identity">
+  <div class="section-header reveal">
+    <span class="section-number">03</span>
+    <h2 class="section-title" data-es="Brand Identity" data-en="Brand Identity">Brand Identity</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="brand-project reveal">
+    <div class="brand-project-label" data-es="El Porvenir — Sistema de Marca Completo" data-en="El Porvenir — Complete Branding System">El Porvenir — Sistema de Marca Completo</div>
+    <img class="brand-img" src="assets/img/porvenir-brand.png" alt="El Porvenir brand identity system" loading="lazy">
+  </div>
+
+  <div class="brand-project reveal">
+    <div class="brand-project-label" data-es="Duván Monar — Perfección Dental" data-en="Duván Monar — Perfección Dental">Duván Monar — Perfección Dental</div>
+    <img class="brand-img" src="assets/img/brand-02.png" alt="Duván Monar Perfección Dental brand identity" loading="lazy">
+  </div>
+
+  <div class="brand-project reveal">
+    <div class="brand-project-label" data-es="JustAura Studio — Identidad de Marca Propia" data-en="JustAura Studio — Own Brand Identity">JustAura Studio — Identidad de Marca Propia</div>
+    <img class="brand-img" src="assets/img/brand-03.png" alt="JustAura Studio brand identity" loading="lazy">
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-header reveal">
+    <span class="section-number">04</span>
+    <h2 class="section-title" data-es="El Proceso" data-en="The Process">El Proceso</h2>
+    <div class="section-line"></div>
+  </div>
+  <p class="section-intro reveal" data-es="No solo ejecución. Cada proyecto comienza con un concepto, un lenguaje visual y una historia que vale la pena contar." data-en="Not just execution. Every project begins with a concept, a visual language, and a story worth telling.">No solo ejecución. Cada proyecto comienza con un concepto, un lenguaje visual y una historia que vale la pena contar.</p>
+  <div class="process-grid">
+    <div class="process-step reveal d1">
+      <div class="process-num">01</div>
+      <div class="process-name" data-es="Concepto" data-en="Concept">Concepto</div>
+      <div class="process-desc" data-es="Entender la marca, la audiencia y la emoción que necesitamos crear. Investigación, referencias, moodboards visuales." data-en="Understanding the brand, the audience, and the emotion we need to create. Research, references, visual moodboards.">Entender la marca, la audiencia y la emoción que necesitamos crear. Investigación, referencias, moodboards visuales.</div>
+    </div>
+    <div class="process-step reveal d2">
+      <div class="process-num">02</div>
+      <div class="process-name" data-es="Dirección Visual" data-en="Visual Direction">Dirección Visual</div>
+      <div class="process-desc" data-es="Definir el sistema estético: paleta, tipografía en movimiento, ritmo y el lenguaje visual que llevará la historia." data-en="Defining the aesthetic system: palette, typography in motion, rhythm, and the visual language that will carry the story.">Definir el sistema estético: paleta, tipografía en movimiento, ritmo y el lenguaje visual que llevará la historia.</div>
+    </div>
+    <div class="process-step reveal d3">
+      <div class="process-num">03</div>
+      <div class="process-name" data-es="Animación" data-en="Animation">Animación</div>
+      <div class="process-desc" data-es="Ejecución fotograma a fotograma. Curvas de movimiento, timing, entornos 3D y sincronización con diseño sonoro." data-en="Frame by frame execution. Motion curves, timing, 3D environments, and sound design alignment come together.">Ejecución fotograma a fotograma. Curvas de movimiento, timing, entornos 3D y sincronización con diseño sonoro.</div>
+    </div>
+    <div class="process-step reveal">
+      <div class="process-num">04</div>
+      <div class="process-name" data-es="Experiencia Final" data-en="Final Experience">Experiencia Final</div>
+      <div class="process-desc" data-es="Entrega, adaptación para cada plataforma y una pieza final que se siente tan intencional como fue diseñada." data-en="Delivery, adaptation for every platform, and a final piece that feels as intentional as it was designed to be.">Entrega, adaptación para cada plataforma y una pieza final que se siente tan intencional como fue diseñada.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="section-number">05</span>
+    <h2 class="section-title" data-es="Servicios" data-en="Services">Servicios</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="services-list">
+    <div class="service-item reveal"><div class="service-left"><span class="service-num">01</span><span class="service-name" data-es="Dirección Creativa" data-en="Creative Direction">Dirección Creativa</span></div><span class="service-tag" data-es="Concepto · Estrategia · Visión" data-en="Concept · Strategy · Vision">Concepto · Estrategia · Visión</span><div class="service-arrow"></div></div>
+    <div class="service-item reveal d1"><div class="service-left"><span class="service-num">02</span><span class="service-name">Motion Design</span></div><span class="service-tag" data-es="2D · Cinético · Gráfico" data-en="2D · Kinetic · Graphic">2D · Cinético · Gráfico</span><div class="service-arrow"></div></div>
+    <div class="service-item reveal d2"><div class="service-left"><span class="service-num">03</span><span class="service-name" data-es="Visuales 3D" data-en="3D Visuals">Visuales 3D</span></div><span class="service-tag" data-es="Animación · Render · VFX" data-en="Animation · Rendering · VFX">Animación · Render · VFX</span><div class="service-arrow"></div></div>
+    <div class="service-item reveal d3"><div class="service-left"><span class="service-num">04</span><span class="service-name" data-es="Animación de Marca" data-en="Brand Animation">Animación de Marca</span></div><span class="service-tag" data-es="Identidad · Sistema · Campaña" data-en="Identity · System · Campaign">Identidad · Sistema · Campaña</span><div class="service-arrow"></div></div>
+    <div class="service-item reveal"><div class="service-left"><span class="service-num">05</span><span class="service-name" data-es="Comerciales" data-en="Commercial Films">Comerciales</span></div><span class="service-tag" data-es="Spot · Producto · Historia" data-en="Spot · Product · Story">Spot · Producto · Historia</span><div class="service-arrow"></div></div>
+    <div class="service-item reveal d1"><div class="service-left"><span class="service-num">06</span><span class="service-name" data-es="Edición de Video" data-en="Video Editing">Edición de Video</span></div><span class="service-tag" data-es="Post · Color · Sonido" data-en="Post · Color · Sound">Post · Color · Sonido</span><div class="service-arrow"></div></div>
+  </div>
+</section>
+
+<!-- COLLABS -->
+<section id="collabs">
+  <div class="collabs-label reveal" data-es="Colaboraciones Seleccionadas" data-en="Selected Collaborations">Colaboraciones Seleccionadas</div>
+  <div class="collabs-row reveal">
+    <div class="collab-name">Arcángel</div><div class="collab-div"></div>
+    <div class="collab-name">Lunay</div><div class="collab-div"></div>
+    <div class="collab-name">Biovantix</div><div class="collab-div"></div>
+    <div class="collab-name">Smile and Travel</div><div class="collab-div"></div>
+    <div class="collab-name">Hilos Angelicales</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-label reveal" data-es="Estudio" data-en="Studio">Estudio</div>
+    <blockquote class="about-manifesto reveal">
+      <span class="hero-line-inline">Motion Design</span><br>
+      <em data-es="que transforma" data-en="that transforms">que transforma</em>
+      <span data-es="ideas en" data-en="ideas into">ideas en</span><br>
+      <em data-es="experiencias visuales." data-en="visual experiences.">experiencias visuales.</em>
+    </blockquote>
+    <div class="about-name reveal">Jordy Catamuscay</div>
+    <div class="about-role reveal d1" data-es="Motion Designer · Animador · Diseñador Visual" data-en="Motion Designer · Animator · Visual Designer">Motion Designer · Animador · Diseñador Visual</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-eyebrow reveal" data-es="¿Tienes un proyecto en mente?" data-en="Have a project in mind?">¿Tienes un proyecto en mente?</div>
+  <h2 class="contact-title reveal" data-es="Creemos algo" data-en="Let's create">Creemos algo</h2>
+  <div class="contact-subtitle reveal" data-es="memorable." data-en="memorable.">memorable.</div>
+  <a href="mailto:jordyalejandro1994@gmail.com" class="contact-cta reveal" data-es="Iniciar Proyecto" data-en="Start a Project">Iniciar Proyecto</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">JUST AURA</div>
+  <div class="footer-copy" data-es="© 2026 Just Aura. Todos los derechos reservados." data-en="© 2026 Just Aura. All rights reserved.">© 2026 Just Aura. Todos los derechos reservados.</div>
+  <div class="footer-links">
+    <a href="https://www.instagram.com/jordy_alejandr0" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://vimeo.com/jordyalejandr0" target="_blank" rel="noopener">Vimeo</a>
+    <a href="https://www.tiktok.com/@aeliorus_" target="_blank" rel="noopener">TikTok</a>
+  </div>
+</footer>
+
+<!-- FLOATING SOCIAL DOCK -->
+<div class="social-dock">
+  <a class="social-dock-item" href="https://www.instagram.com/jordy_alejandr0" target="_blank" rel="noopener" aria-label="Instagram">
+    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg>
+    <span class="social-dock-label">Instagram</span>
+  </a>
+  <a class="social-dock-item" href="https://www.tiktok.com/@aeliorus_" target="_blank" rel="noopener" aria-label="TikTok">
+    <svg viewBox="0 0 24 24"><path d="M16 3v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M16 3a5 5 0 0 0 5 5"/></svg>
+    <span class="social-dock-label">TikTok</span>
+  </a>
+  <div class="social-dock-line"></div>
+  <a class="social-dock-item" href="mailto:jordyalejandro1994@gmail.com" aria-label="Email">
+    <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+    <span class="social-dock-label">Email</span>
+  </a>
+</div>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
